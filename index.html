@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020"><meta name="description" content="Fixab IPTV — مشغّل قوائم M3U الخاصة بك">
+  <link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"><title>Fixab IPTV</title>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#" aria-label="Fixab IPTV">FIXAB <span>IPTV</span></a><button id="openSource" class="primary">إضافة قائمة</button></header>
+  <main class="layout">
+    <aside class="sidebar" aria-label="التنقل">
+      <button class="nav active" data-view="all">كل القنوات <span id="channelCount">0</span></button>
+      <button class="nav" data-view="favorites">المفضلة <span id="favoriteCount">0</span></button>
+      <div class="section-label">التصنيفات</div><div id="groups" class="groups"></div>
+    </aside>
+    <section class="content">
+      <div class="toolbar"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="ابحث عن قناة…"></label><p id="status" role="status">أضف قائمة M3U خاصة بك للبدء.</p></div>
+      <div id="empty" class="empty-state"><div class="tv-icon">▶</div><h1>أهلاً بك في Fixab IPTV</h1><p>أضف رابط M3U أو ارفع ملف القائمة لتشاهد القنوات التي تملك حق الوصول إليها.</p><button class="primary" id="emptyAdd">إضافة قائمة</button></div>
+      <div id="channels" class="channels" hidden></div>
+    </section>
+  </main>
+  <dialog id="sourceDialog"><form id="sourceForm" method="dialog">
+    <div class="dialog-title"><h2>إضافة قائمة تشغيل</h2><button class="icon-button" value="cancel" aria-label="إغلاق">×</button></div>
+    <label>رابط قائمة M3U<input id="playlistUrl" type="url" placeholder="https://example.com/playlist.m3u"></label><p class="or">أو</p>
+    <label class="file-field">اختر ملف M3U<input id="playlistFile" type="file" accept=".m3u,.m3u8,audio/x-mpegurl,application/x-mpegurl"></label>
+    <p class="hint">قد تمنع بعض المواقع تحميل القوائم بسبب إعدادات الحماية CORS. استخدم رابطًا مسموحًا من مزوّدك.</p>
+    <button class="primary" id="loadPlaylist" value="default">تحميل القائمة</button>
+  </form></dialog>
+  <dialog id="playerDialog" class="player-dialog"><div class="player-header"><strong id="nowPlaying">مشغّل Fixab</strong><button id="closePlayer" class="icon-button" aria-label="إغلاق المشغّل">×</button></div><video id="player" controls playsinline></video><p id="playerMessage"></p></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.6.5/dist/hls.min.js"></script><script src="app.js"></script>
+</body></html>
